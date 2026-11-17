@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>David M. Smith, MD, MBA, FAANS · Neurosurgical Medicolegal Consulting</title>
+<meta name="description" content="Board-certified neurosurgeon offering case review, standard-of-care and causation opinions, and deposition and trial testimony for plaintiff and defense counsel. Longmont, Colorado.">
+<meta name="theme-color" content="#f8f7f3">
+<meta property="og:title" content="David M. Smith, MD, MBA, FAANS">
+<meta property="og:description" content="Neurosurgical case review, expert opinions, and testimony for plaintiff and defense counsel.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://davidmsmithmd.com">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f7f3;
+    --panel: #efede6;
+    --ink: #161616;
+    --muted: #6b6a66;
+    --rule: #dcd9cf;
+    --accent: #c79a2b;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --wrap: 1180px;
+    --pad: clamp(20px, 4vw, 48px);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 17px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--pad); }
+  .skip { position: absolute; left: -9999px; }
+  .skip:focus { left: 16px; top: 16px; background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 999px; z-index: 100; }
+
+  /* Header */
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent; transition: border-color .3s;
+  }
+  header.site.scrolled { border-bottom-color: var(--rule); }
+  .bar { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 24px; }
+  .mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .mark svg { width: 26px; height: 26px; flex: none; }
+  .mark span { font-family: var(--serif); font-size: 21px; letter-spacing: -0.01em; white-space: nowrap; }
+  nav.main { display: flex; align-items: center; gap: 30px; }
+  nav.main a { text-decoration: none; font-size: 15px; color: var(--muted); transition: color .2s; }
+  nav.main a:hover { color: var(--ink); }
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink); color: var(--bg) !important; text-decoration: none;
+    font-size: 15px; font-weight: 500; padding: 10px 18px; border-radius: 999px;
+    transition: transform .2s, background .2s;
+  }
+  .pill:hover { transform: translateY(-1px); background: #000; }
+  .pill.light { background: var(--panel); color: var(--ink) !important; }
+  .pill.light:hover { background: #e6e3da; }
+  .menu-btn {
+    display: none; width: 44px; height: 44px; border-radius: 50%;
+    border: 1px solid var(--ink); background: transparent; cursor: pointer;
+    align-items: center; justify-content: center;
+  }
+  .menu-btn span, .menu-btn span::before, .menu-btn span::after {
+    display: block; width: 16px; height: 1.25px; background: var(--ink); position: relative; content: "";
+    transition: transform .25s;
+  }
+  .menu-btn span::before { position: absolute; top: -5px; }
+  .menu-btn span::after { position: absolute; top: 5px; }
+  .menu-open .menu-btn span { background: transparent; }
+  .menu-open .menu-btn span::before { transform: translateY(5px) rotate(45deg); }
+  .menu-open .menu-btn span::after { transform: translateY(-5px) rotate(-45deg); }
+
+  /* Shared type */
+  .eyebrow { font-size: 14px; color: var(--muted); letter-spacing: 0.01em; margin: 0 0 18px; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.02em; margin: 0; }
+  h2 { font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.08; }
+  h3 { font-size: 1.55rem; line-height: 1.2; letter-spacing: -0.01em; }
+  .lead { font-size: clamp(1.1rem, 1.6vw, 1.3rem); color: var(--muted); max-width: 40ch; }
+  .arrow-link { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-size: 16px; }
+  .arrow-link::before { content: "→"; transition: transform .2s; }
+  .arrow-link:hover::before { transform: translateX(4px); }
+  .arrow-link:hover { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+  section { padding: clamp(72px, 10vw, 128px) 0; }
+  .rule { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+
+  /* Hero */
+  .hero { padding-top: clamp(64px, 10vw, 120px); padding-bottom: clamp(56px, 8vw, 96px); }
+  .hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.9rem); line-height: 1.03; letter-spacing: -0.03em; margin-bottom: 32px; }
+  .hero h1 em { font-style: italic; font-weight: 300; }
+  .hero-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
+  .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px 28px; margin-top: 32px; }
+  .portrait {
+    aspect-ratio: 4 / 5; background: var(--panel); border-radius: 4px;
+    display: flex; align-items: flex-end; padding: 18px; position: relative; overflow: hidden;
+  }
+  .portrait::before {
+    content: ""; position: absolute; inset: 22% 24% 30%;
+    background: #e5e2d8; box-shadow: 0 0 0 26px #ebe8e0;
+  }
+  .portrait::after {
+    content: ""; position: absolute; inset: 36% 38% 44%; background: #dcd8cb;
+  }
+  .portrait p { position: relative; z-index: 1; margin: 0; font-size: 13px; color: var(--muted); }
+
+  /* Facts row */
+  .facts { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--rule); }
+  .fact { padding: 28px 24px 8px 0; }
+  .fact + .fact { padding-left: 24px; border-left: 1px solid var(--rule); }
+  .fact .k { font-size: 14px; color: var(--muted); margin: 0 0 6px; }
+  .fact .v { font-family: var(--serif); font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.15; letter-spacing: -0.01em; margin: 0; }
+
+  /* Services */
+  .head-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 64px; align-items: end; margin-bottom: clamp(40px, 6vw, 64px); }
+  .head-row p { margin: 0; color: var(--muted); max-width: 46ch; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--panel); border-radius: 6px; padding: 32px 28px 36px; display: flex; flex-direction: column; gap: 14px; min-height: 300px; }
+  .card .n { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .card h3 { margin-top: auto; }
+  .card p { margin: 0; color: #4a4945; font-size: 16px; }
+
+  /* Expertise */
+  .expertise { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 48px; }
+  .exp-col h3 { padding-bottom: 18px; border-bottom: 1px solid var(--ink); margin-bottom: 4px; }
+  .exp-col ul { list-style: none; padding: 0; margin: 0; }
+  .exp-col li { padding: 14px 0; border-bottom: 1px solid var(--rule); font-size: 16px; }
+
+  /* Approach */
+  .approach { background: var(--ink); color: var(--bg); }
+  .approach .eyebrow { color: #a3a19b; }
+  .approach h2 { max-width: 18ch; }
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: clamp(48px, 7vw, 80px); }
+  .principles h3 { font-size: 1.35rem; margin-bottom: 12px; }
+  .principles p { margin: 0; color: #bdbbb4; font-size: 16px; }
+  .principles .sq { width: 14px; height: 14px; background: var(--accent); margin-bottom: 24px; }
+
+  /* Background / CV */
+  .cv { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(32px, 6vw, 96px); }
+  .cv-side { position: sticky; top: 110px; align-self: start; }
+  .cv-side p { color: var(--muted); max-width: 32ch; }
+  .cv-block + .cv-block { margin-top: 56px; }
+  .cv-block h3 { font-size: 1.2rem; font-family: var(--sans); font-weight: 500; letter-spacing: 0; padding-bottom: 14px; border-bottom: 1px solid var(--ink); }
+  .row { display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+  .row .t { font-family: var(--serif); font-size: 1.2rem; line-height: 1.3; }
+  .row .s { color: var(--muted); font-size: 15px; grid-column: 1; }
+  .row .d { color: var(--muted); font-size: 14px; white-space: nowrap; font-variant-numeric: tabular-nums; grid-row: 1; grid-column: 2; padding-top: 3px; }
+  .row .t i { font-style: italic; }
+
+  /* Process */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--rule); }
+  .step { padding: 28px 28px 0 0; }
+  .step + .step { padding-left: 28px; border-left: 1px solid var(--rule); }
+  .step .n { font-family: var(--serif); font-size: 2.6rem; line-height: 1; color: var(--accent); margin-bottom: 22px; }
+  .step h3 { font-size: 1.3rem; margin-bottom: 10px; }
+  .step p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  /* Contact */
+  .contact { padding-bottom: clamp(56px, 8vw, 96px); }
+  .contact h2 { font-size: clamp(2.6rem, 6.4vw, 5.2rem); line-height: 1.02; letter-spacing: -0.03em; max-width: 13ch; }
+  .contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(32px, 6vw, 96px); align-items: end; }
+  .contact dl { margin: 0; }
+  .contact dt { font-size: 14px; color: var(--muted); margin-top: 22px; }
+  .contact dt:first-child { margin-top: 0; }
+  .contact dd { margin: 4px 0 0; font-family: var(--serif); font-size: 1.45rem; letter-spacing: -0.01em; }
+  .contact dd a { text-decoration: none; border-bottom: 1px solid var(--rule); transition: border-color .2s; }
+  .contact dd a:hover { border-color: var(--ink); }
+  .note { margin-top: 40px; padding: 20px 22px; background: var(--panel); border-radius: 6px; font-size: 15px; color: #4a4945; max-width: 62ch; }
+  .note strong { color: var(--ink); font-weight: 500; }
+
+  footer { border-top: 1px solid var(--rule); padding: 32px 0 48px; font-size: 14px; color: var(--muted); }
+  .foot { display: flex; justify-content: space-between; gap: 16px 40px; flex-wrap: wrap; }
+  .foot p { margin: 0; max-width: 62ch; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  .hero h1 .w { display: inline-block; opacity: 0; transform: translateY(0.35em); animation: rise .9s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .hero h1 .w { opacity: 1 !important; transform: none !important; animation: none !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Responsive */
+  @media (max-width: 960px) {
+    nav.main { position: fixed; inset: 76px 0 auto 0; background: var(--bg); flex-direction: column; align-items: flex-start; gap: 0; padding: 8px var(--pad) 28px; border-bottom: 1px solid var(--rule); transform: translateY(-8px); opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; }
+    nav.main a { font-family: var(--serif); font-size: 1.7rem; color: var(--ink); padding: 10px 0; width: 100%; }
+    nav.main .pill { font-family: var(--sans); font-size: 15px; width: auto; margin-top: 16px; padding: 12px 20px; }
+    .menu-open nav.main { opacity: 1; transform: none; pointer-events: auto; }
+    .menu-btn { display: inline-flex; }
+    .hero-grid, .head-row, .cv, .contact-grid { grid-template-columns: 1fr; }
+    .portrait { max-width: 420px; }
+    .cards, .expertise, .principles { grid-template-columns: 1fr; }
+    .expertise { gap: 48px; }
+    .card { min-height: 0; }
+    .card h3 { margin-top: 28px; }
+    .facts, .steps { grid-template-columns: 1fr 1fr; }
+    .fact:nth-child(3), .step:nth-child(3) { padding-left: 0; border-left: 0; }
+    .fact:nth-child(n+3), .step:nth-child(n+3) { border-top: 1px solid var(--rule); }
+    .step { padding-bottom: 28px; }
+    .cv-side { position: static; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .mark span { font-size: 18px; }
+    .facts, .steps { grid-template-columns: 1fr; }
+    .fact + .fact, .step + .step { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
+    .fact { padding-bottom: 20px; }
+    .row { grid-template-columns: 1fr; }
+    .row .d { grid-row: auto; grid-column: 1; padding-top: 0; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="site" id="top">
+  <div class="wrap bar">
+    <a class="mark" href="#top" aria-label="David M. Smith, MD — home">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" fill="#e8e1cc"/><rect x="4" y="5" width="18" height="18" fill="#d7bf7f"/><rect x="8" y="10" width="10" height="10" fill="#c79a2b"/></svg>
+      <span>David M. Smith, MD</span>
+    </a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <nav class="main" id="nav" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#background">Background</a>
+      <a href="#process">Process</a>
+      <a class="pill" href="#contact">Request a review</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Neurosurgical medicolegal consulting · Longmont, Colorado</p>
+          <h1>Clear neurosurgical opinions, <em>grounded in practice.</em></h1>
+          <p class="lead">Board-certified neurosurgeon with more than twelve years in cranial and spine surgery, offering case review, standard-of-care and causation opinions, and deposition and trial testimony for plaintiff and defense counsel.</p>
+          <div class="hero-actions">
+            <a class="pill" href="#contact">Request a case review</a>
+            <a class="arrow-link" href="#background">View background</a>
+          </div>
+        </div>
+        <div class="portrait reveal" role="img" aria-label="Photo placeholder">
+          <p>Photo coming soon</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="facts reveal">
+      <div class="fact"><p class="k">Experience</p><p class="v">12+ years in neurosurgery</p></div>
+      <div class="fact"><p class="k">Certification</p><p class="v">American Board of Neurological Surgery</p></div>
+      <div class="fact"><p class="k">Retained by</p><p class="v">Plaintiff and defense counsel</p></div>
+      <div class="fact"><p class="k">Matters</p><p class="v">Personal injury and malpractice</p></div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <div>
+          <p class="eyebrow">Services</p>
+          <h2>From first review to the witness stand.</h2>
+        </div>
+        <p>Every engagement begins with a careful reading of the records and imaging. Opinions are offered only where the clinical evidence supports them.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="n">01</span>
+          <h3>Case and record review</h3>
+          <p>Neurosurgical review of medical records and imaging, with a candid early assessment of the clinical questions in the case.</p>
+        </article>
+        <article class="card reveal">
+          <span class="n">02</span>
+          <h3>Expert opinions and reports</h3>
+          <p>Standard-of-care, causation, and future-care opinions, delivered verbally or as a written report.</p>
+        </article>
+        <article class="card reveal">
+          <span class="n">03</span>
+          <h3>Deposition and trial testimony</h3>
+          <p>Clear, well-prepared testimony that explains neurosurgical decision making to attorneys, judges, and juries.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- Expertise -->
+  <section id="expertise">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <div>
+          <p class="eyebrow">Areas of expertise</p>
+          <h2>Spine, cranial, and the questions that follow.</h2>
+        </div>
+        <p>Clinical depth across degenerative and traumatic conditions of the spine and brain, applied to the issues that most often arise in litigation.</p>
+      </div>
+      <div class="expertise">
+        <div class="exp-col reveal">
+          <h3>Spine</h3>
+          <ul>
+            <li>Degenerative spine disease: disc herniation, stenosis, spondylolisthesis</li>
+            <li>Spinal trauma and spinal cord injury</li>
+            <li>Cervical, thoracic, and lumbar surgery: decompression, fusion, instrumentation</li>
+            <li>Post-surgical complications</li>
+          </ul>
+        </div>
+        <div class="exp-col reveal">
+          <h3>Cranial</h3>
+          <ul>
+            <li>Traumatic brain injury</li>
+            <li>Hemorrhagic stroke</li>
+            <li>Subdural and epidural hematoma</li>
+          </ul>
+        </div>
+        <div class="exp-col reveal">
+          <h3>Medicolegal topics</h3>
+          <ul>
+            <li>Standard of care in neurosurgical diagnosis and treatment</li>
+            <li>Causation: acute injury vs. pre-existing degenerative findings</li>
+            <li>Timeliness of diagnosis, referral, and surgical intervention</li>
+            <li>Future medical care needs and surgical recommendations</li>
+            <li>Informed consent and surgical decision making</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Approach -->
+  <section class="approach">
+    <div class="wrap">
+      <p class="eyebrow reveal">Approach</p>
+      <h2 class="reveal">Balanced by design. The same standard, whoever calls.</h2>
+      <div class="principles">
+        <div class="reveal">
+          <div class="sq"></div>
+          <h3>Both sides of the table</h3>
+          <p>Available to plaintiff and defense counsel, so opinions follow the medicine rather than the side.</p>
+        </div>
+        <div class="reveal">
+          <div class="sq"></div>
+          <h3>A practicing perspective</h3>
+          <p>Opinions come from an active neurosurgeon who still takes call and sees patients, not from a retired practice.</p>
+        </div>
+        <div class="reveal">
+          <div class="sq"></div>
+          <h3>Systems and quality</h3>
+          <p>Experience as an OR medical director and neuroscience program director, with an MBA and training in quality and outcomes measurement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Background -->
+  <section id="background">
+    <div class="wrap cv">
+      <div class="cv-side reveal">
+        <p class="eyebrow">Background</p>
+        <h2>Training and experience</h2>
+        <p>A full curriculum vitae is available to retaining counsel on request.</p>
+        <a class="arrow-link" href="mailto:drsmith@davidmsmithmd.com?subject=CV%20request">Request CV</a>
+      </div>
+      <div>
+        <div class="cv-block reveal">
+          <h3>Certification and licensure</h3>
+          <div class="row"><span class="t">Diplomate, American Board of Neurological Surgery</span><span class="d">2019 – present</span></div>
+          <div class="row"><span class="t">Fellow, American Association of Neurological Surgeons (FAANS)</span><span class="d"></span></div>
+          <div class="row"><span class="t">Medical license, Colorado</span><span class="d">2021 – present</span></div>
+        </div>
+
+        <div class="cv-block reveal">
+          <h3>Education and training</h3>
+          <div class="row"><span class="t">Residency in Neurological Surgery</span><span class="s">University Hospitals of Cleveland / MetroHealth Medical Center, Case Western Reserve University</span><span class="d">2014</span></div>
+          <div class="row"><span class="t">Master of Business Administration</span><span class="s">Weatherhead School of Management, Case Western Reserve University</span><span class="d">2013</span></div>
+          <div class="row"><span class="t">Internship in General Surgery</span><span class="s">University Hospitals of Cleveland / MetroHealth Medical Center</span><span class="d">2008</span></div>
+          <div class="row"><span class="t">Doctor of Medicine</span><span class="s">New York Medical College</span><span class="d">2007</span></div>
+          <div class="row"><span class="t">BA, Linguistics</span><span class="s">Brigham Young University</span><span class="d">2002</span></div>
+        </div>
+
+        <div class="cv-block reveal">
+          <h3>Clinical practice and leadership</h3>
+          <div class="row"><span class="t">Neurosurgery call coverage</span><span class="s">Boulder Community Health and UCHealth Longs Peak Hospital, Colorado</span><span class="d">2026 – present</span></div>
+          <div class="row"><span class="t">Neurosurgeon, UCHealth Medical Group</span><span class="s">Longs Peak Hospital, Longmont, Colorado</span><span class="d">2023 – 2026</span></div>
+          <div class="row"><span class="t">Neurosurgery call coverage</span><span class="s">Hospitals in Colorado, Kansas, Maine, and Washington</span><span class="d">2019 – 2023</span></div>
+          <div class="row"><span class="t">Neurosurgeon, Utah Neurological Clinic</span><span class="s">Provo, Utah</span><span class="d">2014 – 2020</span></div>
+          <div class="row"><span class="t">Operating Room Medical Director</span><span class="s">Utah Valley Hospital</span><span class="d">2018 – 2021</span></div>
+          <div class="row"><span class="t">Medical Director, Neurosciences Clinical Program</span><span class="s">Intermountain Healthcare</span><span class="d">2015 – 2018</span></div>
+        </div>
+
+        <div class="cv-block reveal">
+          <h3>Selected presentations and publications</h3>
+          <div class="row"><span class="t">“Robotics in Spinal Surgery”</span><span class="s">Neurosurgery in the Rockies Conference, Vail, Colorado</span><span class="d">2025</span></div>
+          <div class="row"><span class="t">“Surgical Safety Plan”</span><span class="s">Keynote, joint meeting of surgeons, anesthesiologists, and OR staff, Utah Valley Hospital</span><span class="d">2019</span></div>
+          <div class="row"><span class="t">“Traumatic Brain Injury Update: Outcomes, Management, and Prognosis”</span><span class="s">Trauma Grand Rounds, Utah Valley Hospital</span><span class="d">2016</span></div>
+          <div class="row"><span class="t">“Lumbosacral Radiculopathy: A Neurosurgeon’s Perspective”</span><span class="s">Featured speaker, Utah Valley Pain Management Symposium</span><span class="d">2015</span></div>
+          <div class="row"><span class="t">Percutaneous balloon compression for recurrent trigeminal neuralgia: long-term outcome in 29 patients</span><span class="s">Omeis I, Smith D, Kim S, Murali R. <i>Stereotactic and Functional Neurosurgery</i> 2008;86(4):259–65</span><span class="d">2008</span></div>
+        </div>
+
+        <div class="cv-block reveal">
+          <h3>Professional memberships</h3>
+          <div class="row"><span class="t">American Association of Neurological Surgeons</span><span class="d">2008 – present</span></div>
+          <div class="row"><span class="t">Congress of Neurological Surgeons</span><span class="d">2008 – present</span></div>
+          <div class="row"><span class="t">Council of State Neurosurgical Societies</span><span class="d">2012 – present</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- Process -->
+  <section id="process">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <div>
+          <p class="eyebrow">How to engage</p>
+          <h2>A simple, orderly start.</h2>
+        </div>
+        <p>Please do not send medical records or patient information until a conflict check is complete and an engagement letter is in place.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step"><div class="n">1</div><h3>Inquiry</h3><p>Email the parties, case type, and any deadlines so a conflict check can be run.</p></div>
+        <div class="step"><div class="n">2</div><h3>Engagement</h3><p>Once cleared, you receive an engagement letter and fee schedule.</p></div>
+        <div class="step"><div class="n">3</div><h3>Records</h3><p>Records and imaging are exchanged through a secure transfer.</p></div>
+        <div class="step"><div class="n">4</div><h3>Opinion</h3><p>A verbal review first, followed by a written report or testimony as needed.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow reveal">Contact</p>
+      <div class="contact-grid">
+        <h2 class="reveal">Discuss a case.</h2>
+        <dl class="reveal">
+          <dt>Email</dt>
+          <dd><a href="mailto:drsmith@davidmsmithmd.com?subject=New%20case%20inquiry&body=Attorney%20name%3A%0AFirm%3A%0APhone%3A%0ARepresenting%20(plaintiff%20or%20defense)%3A%0AParties%20(for%20conflict%20check)%3A%0ACase%20type%3A%0AJurisdiction%3A%0AKey%20deadlines%3A%0ABrief%20description%20(no%20patient%20records%2C%20please)%3A%0A">drsmith@davidmsmithmd.com</a></dd>
+          <dt>Location</dt>
+          <dd>Longmont, Colorado</dd>
+        </dl>
+      </div>
+      <div class="hero-actions reveal">
+        <a class="pill" href="mailto:drsmith@davidmsmithmd.com?subject=New%20case%20inquiry&body=Attorney%20name%3A%0AFirm%3A%0APhone%3A%0ARepresenting%20(plaintiff%20or%20defense)%3A%0AParties%20(for%20conflict%20check)%3A%0ACase%20type%3A%0AJurisdiction%3A%0AKey%20deadlines%3A%0ABrief%20description%20(no%20patient%20records%2C%20please)%3A%0A">Start a case inquiry</a>
+      </div>
+      <p class="note reveal"><strong>Before you write:</strong> include the names of the parties so a conflict check can be completed. Please do not attach medical records or protected health information to your first message.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© <span id="yr">2026</span> David M Smith MD PLLC · Longmont, Colorado</p>
+    <p>This website provides general information about medicolegal consulting services. It does not offer medical advice or create a physician–patient relationship.</p>
+  </div>
+</footer>
+
+<script>
+  // Header border on scroll
+  const header = document.querySelector('header.site');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu
+  const btn = document.querySelector('.menu-btn');
+  btn.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  });
+  document.querySelectorAll('nav.main a').forEach(a => a.addEventListener('click', () => {
+    document.body.classList.remove('menu-open'); btn.setAttribute('aria-expanded', false);
+  }));
+
+  // Hero headline: word-by-word rise
+  const h1 = document.querySelector('.hero h1');
+  let i = 0;
+  const wrapWords = (node) => {
+    [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          const s = document.createElement('span');
+          s.className = 'w'; s.textContent = part; s.style.animationDelay = (0.08 * i++) + 's';
+          frag.appendChild(s);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1) { wrapWords(n); }
+    });
+  };
+  wrapWords(h1);
+
+  // Reveal on scroll
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }) : null;
+  document.querySelectorAll('.reveal').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
